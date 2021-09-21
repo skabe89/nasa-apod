@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-logo {
@@ -35,4 +38,38 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.container{
+  display: grid;
+  margin: 0 auto;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(3, minmax(25vw, 1fr));
+  grid-gap: 4vw;
+  padding: 4vw;
+}
+
+.card{
+  background-color: #61dafb;
+  position: relative;
+  /* width: 25vw; */
+  height: 28vw;
+}
+
+.card-image{
+  background-color: antiquewhite;
+  height: 100%;
+  margin-bottom: 15px;
+}
+
+img{
+  width: 100%;
+  height: 80%;
+}
+
+iframe{
+  width: 100%;
+  height: 80%;
 }

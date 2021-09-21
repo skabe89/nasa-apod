@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import Pic from './Pic'
-import Vid from './Vid'
 require('dotenv').config()
 
 export default function PicsContainer() {
@@ -24,23 +23,20 @@ export default function PicsContainer() {
     })
   }
 
-  const likePic = (picture) => {
+  const likeOrUnlike = (picture) => {
     if(liked.includes(picture)){
       let index = liked.indexOf(picture)
       let arr = [...liked]
       arr.splice(index, 1)
       setLiked(arr)
-      console.log(`Unliked ${picture.title}`)
-
     }
     else{
       setLiked([...liked, picture])
-      console.log(`Liked ${picture.title}`)
     }
   }
 
   const appendPics = () => {
-    return pics.map((p, i) => <Pic key={p.date} picture={p} index={i} likePic={likePic}/> )
+    return pics.map((p, i) => <Pic key={p.date} picture={p} index={i} likeOrUnlike={likeOrUnlike}/> )
   }
 
   const listLiked = () => {
@@ -53,7 +49,10 @@ export default function PicsContainer() {
     <div>
       <h3>{listLiked()}</h3>
       {fetched ? null : <button onClick={() => fetchPics()}>Fetch Pics</button>}
-      {typeof pics === 'object' ? appendPics() : <h1>{pics}</h1>}
+
+      <div className='container'>
+        {typeof pics === 'object' ? appendPics() : <h1>{pics}</h1>}
+      </div>
     </div>
   )
 }
