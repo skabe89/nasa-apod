@@ -24,12 +24,34 @@ export default function PicsContainer() {
     })
   }
 
+  const likePic = (picture) => {
+    if(liked.includes(picture)){
+      let index = liked.indexOf(picture)
+      let arr = [...liked]
+      arr.splice(index, 1)
+      setLiked(arr)
+      console.log(`Unliked ${picture.title}`)
+
+    }
+    else{
+      setLiked([...liked, picture])
+      console.log(`Liked ${picture.title}`)
+    }
+  }
+
   const appendPics = () => {
-    return pics.map(p => p.url.split('.').includes('youtube') ? <Vid key={p.date} video={p}/> : <Pic key={p.date} picture={p}/> )
+    return pics.map((p, i) => <Pic key={p.date} picture={p} index={i} likePic={likePic}/> )
+  }
+
+  const listLiked = () => {
+    let names = []
+    liked.forEach(l => names.push(l.title))
+    return names.join(", ")
   }
 
   return (
     <div>
+      <h3>{listLiked()}</h3>
       {fetched ? null : <button onClick={() => fetchPics()}>Fetch Pics</button>}
       {typeof pics === 'object' ? appendPics() : <h1>{pics}</h1>}
     </div>
