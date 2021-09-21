@@ -1,17 +1,18 @@
 import React, {useState} from 'react'
 
-export default function Pic({picture}) {
+export default function Vid( {video} ) {
   const [like, setLike] = useState(false)
 
   const handleLike = () => {
     setLike(!like)
   }
-
   return (
     <div>
-      <h3>{picture.title}</h3>
-      <h4>{picture.date}</h4>
-      <img src={picture.url} />
+      {console.log(video)}
+       <h3>{video.title}</h3>
+      <h4>{video.date}</h4>
+      <iframe title={video.title} src={video.url} />
+      <h3>{video.url}</h3>
       <br />
       { !like ? <button onClick={handleLike}>Like</button> : <button onClick={handleLike}>Unlike</button> }
     </div>

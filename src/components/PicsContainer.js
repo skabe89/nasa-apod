@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Pic from './Pic'
+import Vid from './Vid'
 require('dotenv').config()
 
 export default function PicsContainer() {
@@ -24,7 +25,7 @@ export default function PicsContainer() {
   }
 
   const appendPics = () => {
-    return pics.map(p => <Pic key={p.date} picture={p}/>)
+    return pics.map(p => p.url.split('.').includes('youtube') ? <Vid key={p.date} video={p}/> : <Pic key={p.date} picture={p}/> )
   }
 
   return (
