@@ -6,10 +6,13 @@ export default function PicsContainer() {
   const key = process.env.REACT_APP_API_KEY
 
   const [pics, setPics] = useState('Loading...')
+  const [fetched, setFetched] = useState(false)
+  const [liked, setLiked] = useState([])
 
-  useEffect(() => {
-    fetchPics()
-  }, [])
+  // useEffect(() => {
+  //   fetchPics()
+  // }, [])
+
 
   const fetchPics = () => {
     fetch(`https://api.nasa.gov/planetary/apod?api_key=${key}&start_date=2021-09-01&end_date=2021-09-21`)
@@ -26,6 +29,7 @@ export default function PicsContainer() {
 
   return (
     <div>
+      {fetched ? null : <button onClick={() => fetchPics()}>Fetch Pics</button>}
       {typeof pics === 'object' ? appendPics() : <h1>{pics}</h1>}
     </div>
   )
