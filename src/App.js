@@ -6,7 +6,7 @@ import PicsContainer from './components/PicsContainer';
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <h1>NASA ASPOD</h1>
       <PicsContainer />
     </div>
   );

@@ -5,13 +5,13 @@ require('dotenv').config()
 export default function PicsContainer() {
   const key = process.env.REACT_APP_API_KEY
 
-  const [pics, setPics] = useState('Loading...')
-  const [fetched, setFetched] = useState(false)
+  const [pics, setPics] = useState('')
   const [liked, setLiked] = useState([])
 
-  // useEffect(() => {
-  //   fetchPics()
-  // }, [])
+
+  useEffect(() => {
+    fetchPics()
+  }, [])
 
 
   const fetchPics = () => {
@@ -35,6 +35,7 @@ export default function PicsContainer() {
     }
   }
 
+
   const appendPics = () => {
     return pics.map((p, i) => <Pic key={p.date} picture={p} index={i} likeOrUnlike={likeOrUnlike}/> )
   }
@@ -47,9 +48,7 @@ export default function PicsContainer() {
 
   return (
     <div>
-      <h3>{listLiked()}</h3>
-      {fetched ? null : <button onClick={() => fetchPics()}>Fetch Pics</button>}
-
+      {typeof pics === 'string' ? <h1>LOADING...</h1> : null}
       <div className='container'>
         {typeof pics === 'object' ? appendPics() : <h1>{pics}</h1>}
       </div>
