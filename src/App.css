@@ -67,9 +67,11 @@
 .overflow{
   color: aliceblue;
   z-index: 1;
+  width: 100%;
+  height: 13vh;
   position: absolute;
- 
-  overflow: hidden;
+  text-align: center;
+  overflow-y: scroll;
 }
 
 
@@ -90,21 +92,26 @@
   margin: auto;
   z-index: 3;
   text-align: center;
-  
   top: 15%;
   left: 30%;
   margin-top: -50px;
   margin-left: -50px;
   background-color: rgb(182, 143, 143);
-  opacity: 80%;
-  width: 40vw;
-  height: 80vh;
+  opacity: 100%;
+  width: 50vw;
+  height: 85vh;
 
 }
 
 img{
   width: 100%;
   height: 80%;
+}
+
+img:hover{
+  width: 100%;
+  height: 80%;
+  opacity: 1;
 }
 
 iframe{

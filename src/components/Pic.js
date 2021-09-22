@@ -22,7 +22,7 @@ export default function Pic({picture, likeOrUnlike}) {
          <h4>{picture.date}</h4> */}
         <button onClick={() => setShow(!show)}>Learn More</button>
         { !like ? <button onClick={handleLike}>Like</button> : <button onClick={handleLike}>Unlike</button> }
-      <div className="overflow">
+      <div>
       </div>
         {show ? <Modal picture={picture} close={closeModal}/> : null}
     </div>
