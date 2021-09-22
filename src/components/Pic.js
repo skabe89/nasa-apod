@@ -1,5 +1,10 @@
 import React, {useState} from 'react'
 import Modal from './Modal'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-regular-svg-icons'
+import {faInfoCircle} from '@fortawesome/free-solid-svg-icons'
+
 
 export default function Pic({picture, likeOrUnlike}) {
 
@@ -18,10 +23,12 @@ export default function Pic({picture, likeOrUnlike}) {
   return (
     <div className='card'>
       { picture.url.split('.').includes('youtube') ? <iframe title={picture.title} src={picture.url} /> : <img src={picture.url} /> }
-        {/* <h3>{picture.title}</h3>
-         <h4>{picture.date}</h4> */}
-        <button onClick={() => setShow(!show)}>Learn More</button>
-        { !like ? <button onClick={handleLike}>Like</button> : <button onClick={handleLike}>Unlike</button> }
+       
+       <div className="info">
+        <FontAwesomeIcon icon={faInfoCircle} size='2x' onClick={() => setShow(!show)} />
+        { !like ? <FontAwesomeIcon icon={faHeart} size='2x' color='red' onClick={handleLike}/> :  <FontAwesomeIcon icon={solidHeart} size='2x' color='red' onClick={handleLike}/>}
+       </div> 
+
       <div>
       </div>
         {show ? <Modal picture={picture} close={closeModal}/> : null}

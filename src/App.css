@@ -52,7 +52,7 @@
 }
 
 .card{
-  background-color: #6a6b6b;
+  background-color: #465f5f;
   position: relative;
   /* width: 25vw; */
   height: 28vw;
@@ -68,11 +68,24 @@
   color: aliceblue;
   z-index: 1;
   width: 100%;
-  height: 13vh;
+  height: 15vh;
   position: absolute;
   text-align: center;
   overflow-y: scroll;
 }
+
+.info{
+  color: aliceblue;
+  width: 100%;
+  height: 10.5vh;
+  position: absolute;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.info a + a {
+  padding-left: 3em;
+} 
 
 
 .modal-bg {
