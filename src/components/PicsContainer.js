@@ -15,7 +15,7 @@ export default function PicsContainer() {
 
 
   const fetchPics = () => {
-    fetch(`https://api.nasa.gov/planetary/apod?api_key=${key}&start_date=2021-09-01&end_date=2021-09-21`)
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=tX8Q8vIy3LBn8ufmRkE6PWldNBz5tMizTkdv4Ceb&start_date=2021-09-01&end_date=2021-09-21`)
     .then(res => res.json())
     .then(data => {
       console.log(data)
