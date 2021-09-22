@@ -108,7 +108,7 @@ body{
 .modal {
   position: fixed;
   margin: auto;
-  z-index: 3;
+  z-index: 1;
   text-align: center;
   top: 15%;
   left: 30%;
@@ -118,7 +118,6 @@ body{
   opacity: 100%;
   width: 50vw;
   height: 85vh;
-
 }
 
 img{
